@@ -1,0 +1,58 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ebook Listing</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* CSS styles go here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin: 0;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ebook Listing</h1>
+
+    <ul>
+        {% for ebook in ebooks %}
+        <li>
+            <h2>{{ ebook.title }}</h2>
+            <p><strong>Author:</strong> {{ ebook.author }}</p>
+            <p>{{ ebook.description }}</p>
+            <p><strong>Price:</strong> ${{ ebook.price }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
